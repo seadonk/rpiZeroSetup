@@ -68,6 +68,11 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 
 ### _From here you can either run the rest of the steps manually, or clone the repo and run the setup file using `sudo setup.sh`_ 
 
+# set timezone
+`sudo raspi-config`
+
+go to localization options > timezone
+
 # Update Package List
 * REMOVE Microsoft Crap
   * `sudo rm /etc/apt/sources.list.d/vscode.list`
