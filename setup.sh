@@ -20,6 +20,7 @@ yarn -v
 
 # _(OPTIONAL) Install Process Manager_
 sudo yarn global add pm2
+sudo pm2 install typescript
 pm2 -v
 
 # _(OPTIONAL) Install Typescript_

@@ -2,13 +2,16 @@
   "name": "rpizerosetup",
   "version": "1.0.0",
   "description": "Setup and configure an rpiZero with nodejs, typescript, yarn, pm2, and a test project",
-  "main": "test.ts",
-  "scripts": {
-    "eslint": "npx eslint src/** --fix",
-    "start": "node ./src/app.ts",
+  "main": "./src/app.ts",
+  "scripts": {    
+    "eslint-fix": "npx eslint src/** --fix",
+    "prebuild": "npm run eslint-fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "ts-node ./dist/app.js",
     "dev": "nodemon ./src/app.ts",
-    "pm2": "pm2 start ./src/app.ts --watch",
-    "start-express": "node ./src/express-test",
+    "pm2": "pm2 start ./dist/app.js --watch",
+    "start-express": "ts-node ./src/express-test.ts",
     "ts-repl": "ts-node"
   },
   "repository": {
@@ -26,6 +29,7 @@
   "homepage": "https://github.com/seadonk/rpiZeroSetup#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "global": "^4.4.0",
     "nodemon": "^2.0.7",
     "rpio": "^2.4.2",
     "rxjs": "^6.6.6"

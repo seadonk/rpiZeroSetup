@@ -119,6 +119,8 @@ _This will allow you to automatically start your code on power on, or restart co
   https://www.npmjs.com/package/pm2
 * install pm2 globally (use `npm` if you didn't install yarn)
   * `sudo yarn global add pm2`
+* install typescript for pm2
+  * `sudo pm2 install typescript`
 * verify installation
   * `pm2 -v`
 
@@ -126,6 +128,8 @@ _This will allow you to automatically start your code on power on, or restart co
 `sudo yarn global add typescript`
 
 `sudo yarn global add ts-node`
+
+* Start a repl using `ts-node repl`
 
 # _(OPTIONAL) Clone a test Repo_
 * I recommend putting your repos in a folder like 'projects'
@@ -142,3 +146,15 @@ _This will allow you to automatically start your code on power on, or restart co
    * You should see test output
 * `yarn start-express`
    * You should see a url that you can access to find "Hello World"
+
+
+# _(OPTIONAL) Create your hello world example_
+* In your projects directory, make a new folder:
+  * `mkdir helloWorld`
+  * `cd helloWorld`
+* Create an app.ts file and add some output
+  * `nano app.ts`
+  * ``console.log(`${new Date().toLocaleTimeString('short')} - Hello World!`)``
+* Run your app
+  * `ts-node app.ts`
+  * You should see your hello world output.
