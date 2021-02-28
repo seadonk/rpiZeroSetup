@@ -11,17 +11,14 @@ instructionSet=armv61
 sudo wget https://unofficial-builds.nodejs.org/download/release/$nodeVer/node-$nodeVer-linux-$instructionSet.tar.xz
 sudo tar -xvf node-$nodeVer-linux-$instructionSet.tar.xz
 sudo cp -R node-$nodeVer-linux-$instructionSet/* /usr/local/
-node -v
-npm -v
 
 # _(OPTIONAL) INSTALL YARN Package Manager_
 sudo npm install --global yarn
-yarn -v
 
 # _(OPTIONAL) Install Process Manager_
 sudo yarn global add pm2
-sudo pm2 install typescript
-pm2 -v
+#optional if you want pm2 to run typescript files, but not recommended for production
+sudo pm2 install typescript 
 
 # _(OPTIONAL) Install Typescript_
 sudo yarn global add typescript

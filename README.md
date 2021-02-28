@@ -124,7 +124,7 @@ _This will allow you to automatically start your code on power on, or restart co
   https://www.npmjs.com/package/pm2
 * install pm2 globally (use `npm` if you didn't install yarn)
   * `sudo yarn global add pm2`
-* install typescript for pm2
+* install typescript for pm2 (#optional if you want pm2 to run typescript files, but not recommended for production)
   * `sudo pm2 install typescript`
 * verify installation
   * `pm2 -v`
