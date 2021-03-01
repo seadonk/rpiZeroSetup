@@ -3,15 +3,21 @@ Setup and configure an rpiZero with nodejs, typescript, yarn, pm2, and a test pr
 
 
 # Setup RaspberryPi OS
+_Raspberry Pi uses an SSD card for all storage. You must place your OS on this card. You can install many OS's but Raspbian is recommended. Since the pi zero is smaller, I recommend the headless version which does not have a Desktop windows-like environment, only terminal._
 * Copy Raspbian to an SSD card
   * (Preferred: Headless)
   * https://www.raspberrypi.org/software/
 * Open the ssd card on your computer in a terminal
   * `cd yourDriveLetter:`
 ## Setup SSH Access
+_SSH access is required to use your pi without a monitor, through a terminal._
 * `touch ssh`
 ## Setup Wifi
-`nano wpa_supplicant.conf`
+_create wpa_supplicant.conf and add the text below, so that on reboot, your pi will automatically connect to wifi._ 
+
+_Note, this only works for the Raspberry Pi Zero **W** model, with built in wifi._
+
+* `nano wpa_supplicant.conf`
 * add the following text to the file and save
     ```
     country=US
@@ -36,6 +42,8 @@ Setup and configure an rpiZero with nodejs, typescript, yarn, pm2, and a test pr
   * `sudo passwd`
 
 # _(OPTIONAL) Setup Passwordless SSH Access using Keys_
+_If you don't do this, then you'll just be prompted for your password everytime you connect_
+
 * on your computer find your key
   * `ls ~/.ssh/*.pub`
 * if you don't have a key or want a different one generate it
@@ -47,6 +55,8 @@ ssh-copy-id pi@raspberrypi #authenticate using your password
   * `ssh pi@raspberrypi`
 
 # INSTALL GIT
+_Recommended for source control, tracking changes in your project, and letting you fetch code from remote repositories like github.com_
+
 https://git-scm.com/
 
 ` sudo apt install git`
@@ -66,12 +76,14 @@ https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-
 * test your key, you should get a success message
   * `ssh git@github`
 
-### _From here you can either run the rest of the steps manually, or clone the repo and run the setup file using `sudo setup.sh`_ 
+### _From here you can either run the rest of the steps manually, or clone the repo and run the setup file using `sudo sh setup.sh`_ 
 
 # set timezone
+_If you want your pi to show you the correct time, you'll have to set the timezone. The time updates automatically with an internet connection._
+
 `sudo raspi-config`
 
-go to localization options > timezone
+* go to localization options > timezone
 
 # Update Package List
 * REMOVE Microsoft Crap
@@ -79,11 +91,13 @@ go to localization options > timezone
   * `sudo rm /etc/apt/trusted.gpg.d/microsoft.gpg`
 * update system package list
   * `sudo apt update`
-* _(OPTIONAL) update all installed packages_
+* _(OPTIONAL) update all installed packages_ (You probably don't need this if your image is recent)
   * `sudo apt-get dist-upgrade`
 
 
 # INSTALL NODE JS
+_Node JS will allow you to run javscript (or typescript) code as an alternative to Python._
+
 _for rpi zero, use armv61 binaries from nodejs.org_
 
 _these binaries are no longer officially supported as of node 12+, so you'll have to install node12, or an unnoficial binary_
@@ -111,6 +125,7 @@ sudo cp -R node-$nodeVer-linux-armv6l/* /usr/local/
 
 # _(OPTIONAL) INSTALL YARN Package Manager_
 _Yarn is an alternative to NPM_
+
 https://yarnpkg.com/
 * npm is bundled with node, use npm to install yarn
 * otherwise apt-get will find the cmdtest yarn package which is different
@@ -130,14 +145,28 @@ _This will allow you to automatically start your code on power on, or restart co
   * `pm2 -v`
 
 # _(OPTIONAL) Install Typescript_
+_If you would like to use typescript instead of plain javascript_
+
 `sudo yarn global add typescript`
 
 `sudo yarn global add ts-node`
 
 * Start a repl using `ts-node repl`
 
+# _(OPTIONAL) Install GPIO Zero library_
+_This will let you use the `pinout` command_
+
+`sudo apt install python3-gpiozero`
+
+# _(OPTIONAL) Install Angular Globally_
+_If you would like to run angular applications._
+
+sudo yarn global add @angular/cli
+
 # _(OPTIONAL) Clone a test Repo_
-* I recommend putting your repos in a folder like 'projects'
+_You can clone the rpiZeroSetup repo to see if your rpiZero is setup correctly._
+
+_I recommend putting your repos in a folder like 'projects'_
 * `mkdir projects`
 * `cd projects`
 * If you setup ssh access to git, you can use the command below

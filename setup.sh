@@ -23,3 +23,9 @@ sudo pm2 install typescript
 # _(OPTIONAL) Install Typescript_
 sudo yarn global add typescript
 sudo yarn global add ts-node
+
+# _(OPTIONAL) Install GPIO Zero library_
+sudo apt install python3-gpiozero
+
+# _(OPTIONAL) Install Angular Globally_
+sudo yarn global add @angular/cli
