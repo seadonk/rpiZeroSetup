@@ -161,7 +161,7 @@ _This will let you use the `pinout` command_
 # _(OPTIONAL) Install Angular Globally_
 _If you would like to run angular applications._
 
-sudo yarn global add @angular/cli
+`sudo yarn global add @angular/cli`
 
 # _(OPTIONAL) Clone a test Repo_
 _You can clone the rpiZeroSetup repo to see if your rpiZero is setup correctly._
