@@ -1,7 +1,11 @@
+# For setting up RaspberryPi Zero
 # Update Package List
 # REMOVE Microsoft Crap
-sudo rm /etc/apt/sources.list.d/vscode.list
-sudo rm /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo rm ~/etc/apt/sources.list.d/vscode.list
+sudo rm ~/etc/apt/trusted.gpg.d/microsoft.gpg
+(or for rpi 2)
+sudo rm ~/../../etc/apt/sources.list.d/vscode.list
+sudo rm ~/../../etc/apt/trusted.gpg.d/microsoft.gpg
 # update system package list
 sudo apt update
 

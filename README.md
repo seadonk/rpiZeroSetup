@@ -49,8 +49,7 @@ _If you don't do this, then you'll just be prompted for your password everytime 
 * if you don't have a key or want a different one generate it
   * `ssh-keygen`
 * once you have your key, copy it over ssh to your rpi
-  * `cat ~/.ssh/id_rsa.pub`
-ssh-copy-id pi@raspberrypi #authenticate using your password
+  * `ssh-copy-id pi@raspberrypi` then authenticate using your password
 * you should now be able to access your rpi without a password
   * `ssh pi@raspberrypi`
 
